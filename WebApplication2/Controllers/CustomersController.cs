@@ -12,13 +12,33 @@ namespace WebApplication2.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = new List<Customer>()
-            {
-                new Customer {Name="John Smiths"},
-                new Customer {Name="Mary Williams"}
-            };
-            ViewBag.customers = customers;
+
+            var customers = GetCustomers();
+         
+            //ViewBag.customers = customers;
+            return View(customers);
+        }
+
+        public ActionResult Details(int id)
+        {
+
             return View();
         }
+
+        private IEnumerable<Customer> GetCustomers()
+        {
+            return new List<Customer>
+            {
+                new Customer {
+                    Name ="John Smiths", Id =1
+                },
+                new Customer {
+                    Name ="Mary Williams",
+                    Id =2
+                }
+            };
+        }
+
+       
     }
 }
