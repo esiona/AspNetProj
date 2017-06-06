@@ -10,10 +10,25 @@ namespace WebApplication2.Controllers
     public class MoviesController : Controller
     {
         // GET: Movies/Random
-        public ActionResult Random()
+        public ActionResult Index()
         {
-            var movie = new Movie() { Name = "Srek!" };
-            return View();
+            var movies = GetMovies();
+            return View(movies);
+        }
+
+        private IEnumerable<Movie> GetMovies()
+        {
+            return new List<Movie>
+            {
+                new Movie
+                {
+                    Name ="Shrek"
+                },
+                new Movie
+                {
+                    Name = "Wall-e"
+                }
+            };
         }
     }
 }
