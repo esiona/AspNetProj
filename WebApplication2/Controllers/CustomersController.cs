@@ -21,8 +21,9 @@ namespace WebApplication2.Controllers
 
         public ActionResult Details(int id)
         {
+            var customer = GetCustomers().SingleOrDefault( c => c.Id == id);
 
-            return View();
+            return View(customer);
         }
 
         private IEnumerable<Customer> GetCustomers()
