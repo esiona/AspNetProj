@@ -8,6 +8,15 @@ namespace WebApplication2
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                 "~/Content/bootstrap-lumen.css",
+                 "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/kendo/css").Include(
+                 "~/Content/kendo/kendo.common-bootstrap.min.css",
+                 "~/Content/kendo/kendo.bootstrap.min.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -23,9 +32,12 @@ namespace WebApplication2
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-lumen.css",
-                      "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+               "~/Scripts/kendo/kendo.all.min.js",
+               "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
+
+            bundles.IgnoreList.Clear();
+
         }
     }
 }
